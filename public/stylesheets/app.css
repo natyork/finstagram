@@ -1,0 +1,33 @@
+header {
+    background-color: #244751;
+    color: #e8fdff;
+    padding: 0px 1em ;
+}
+
+body {
+    background-color: whitesmoke;
+}
+
+main {
+    background-color: white;
+    padding: 16px;
+}
+
+.post {
+    margin-bottom: 48px;
+}
+
+.post .user-info img {
+    border-radius: 50%;
+}
+id
+class
+h1
+
+.myclass {
+    color: blue;
+}
+
+.myclass {
+    color: red;
+}
