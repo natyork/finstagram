@@ -1,0 +1,21 @@
+<% if current_user %>
+        
+    <% if like = Like.find_by({ post_id: post.id })%>
+        <form method="POST" action="/likes/<%= like.id %>">
+            <input type="hidden" name="_method" value="delete">
+            <button class="button user-like" type="submit">
+                <%= post.like_count %> likes        
+            </button>
+        </form>
+    
+    <% else %>
+        <form method="POST" action="/likes">
+            <input type="hidden" name="post_id" value="<%= post.id %>">
+            <button class="button" type="submit">
+                <%= post.like_count %> likes        
+            </button>
+        </form>
+    <% end %>
+<% else %>
+    <%= post.like_count %> likes        
+<% end %>
