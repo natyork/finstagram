@@ -37,6 +37,29 @@ get '/signup' do
   erb(:signup)
 end
 
+post '/comment' do
+  text = params[:text]
+  post_id = params[:post_id]
+  
+  comment = Comment.new({ user_id: current_user.id, post_id: post_id, text: text })
+  
+  comment.save
+  
+  redirect(back)
+  
+end
+
+post '/likes' do
+  post_id = params[:post_id]
+  
+  like = Like.new({ user_id: current_user.id, post_id: post_id })
+  
+  like.save
+  
+  redirect(back)
+  
+end
+
 post '/login' do
   username = params[:username]
   password = params[:password]
@@ -82,4 +105,10 @@ post '/signup' do
   else
     erb(:signup)
   end
+end
+
+delete '/likes/:id' do
+  like = Like.find(params[:id])
+  like.destroy
+  redirect(back)
 end
